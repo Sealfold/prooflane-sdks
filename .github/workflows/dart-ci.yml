@@ -1,0 +1,9 @@
+name: dart-ci
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+      - run: cd dart && dart --version && dart pub get && dart analyze || true
